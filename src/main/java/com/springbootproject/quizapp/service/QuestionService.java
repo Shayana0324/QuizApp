@@ -21,6 +21,9 @@ public class QuestionService {
         return questionDao.findByCategory(category);
     }
 
-
+    public String addQuestion(Question question) {
+        questionDao.save(question);
+        return "success";
+    }
 
 }
