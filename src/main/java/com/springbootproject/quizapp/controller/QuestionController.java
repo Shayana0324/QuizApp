@@ -30,4 +30,9 @@ public class QuestionController {
         return questionService.addQuestion(question);
     }
 
+    @DeleteMapping("{id}")
+    public void deleteQuestion(@PathVariable int id) {
+        questionService.deleteQuestion(id);
+    }
+
 }

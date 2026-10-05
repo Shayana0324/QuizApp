@@ -26,4 +26,11 @@ public class QuestionService {
         return "success";
     }
 
+    public void deleteQuestion(Integer id) {
+        if (!questionDao.existsById(id)) {
+            throw new RuntimeException("Question not found with ID: " + id);
+        }
+        questionDao.deleteById(id);
+
+    }
 }
