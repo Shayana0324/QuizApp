@@ -35,8 +35,13 @@ public class QuestionService {
     }
 
     public ResponseEntity<String> addQuestion(Question question) {
-        questionDao.save(question);
-        return new ResponseEntity<>("success", HttpStatus.CREATED);
+        try {
+            questionDao.save(question);
+            return new ResponseEntity<>("success", HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>("failed", HttpStatus.BAD_REQUEST);
     }
 
     public void deleteQuestion(Integer id) {
